@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #14bdac;
+}
+
+main {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tictactoe-container {
+	margin: 1rem;
+}
+
+.tictactoe-container button {
+	display: flex;
+	width: 50px;
+	height: 50px;
+}
+
+.row {
+	display: flex;
+}
+
+.row button {
+	border: 1.5px solid #0da192;
+	background-color: #14bdac;
+}
+
+.r1 .c1 {
+	border-top: none;
+	border-left: none;
+}
+.r1 .c2 {
+	border-top: none;
+}
+.r1 .c3 {
+	border-top: none;
+	border-right: none;
+}
+
+.r2 .c1 {
+	border-left: none;
+}
+.r2 .c3 {
+	border-right: none;
+}
+
+.r3 .c1 {
+	border-bottom: none;
+	border-left: none;
+}
+.r3 .c2 {
+	border-bottom: none;
+}
+.r3 .c3 {
+	border-bottom: none;
+	border-right: none;
+}
