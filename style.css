@@ -30,8 +30,23 @@ main {
 }
 
 .row button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	border: 1.5px solid #0da192;
 	background-color: #14bdac;
+}
+
+.row button .fa-times {
+	font-size: 35px;
+	color: #545454;
+}
+
+.row button .fa-circle {
+	color: #f2ebd3;
+	font-size: 30px;
+	font-weight: 200;
 }
 
 .r1 .c1 {
