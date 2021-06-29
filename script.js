@@ -13,7 +13,10 @@ const r3c3 = document.querySelector("#r3c3");
 const times = '<i class="fas fa-times"></i>';
 const circle = '<i class="far fa-circle"></i>';
 
-let timesOrCircle = times;
+let turn = Math.random() > 0.5 ? "o" : "x";
+
+const divTurn = document.getElementById("turn");
+divTurn.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
 
 elements = document.querySelectorAll("button");
 elements.forEach((e) =>
@@ -22,12 +25,16 @@ elements.forEach((e) =>
 		const hasX = element.attributes.x.value === "true";
 		const hasO = element.attributes.o.value === "true";
 
-		timesOrCircle = timesOrCircle === times ? circle : times;
-
 		if (!(hasX || hasO)) {
-			element.innerHTML = timesOrCircle;
-			element.setAttribute("x", "true");
+			if (turn === "o") {
+				element.innerHTML = circle;
+				element.setAttribute("x", "true");
+				turn = "x";
+			} else if (turn === "x") {
+				element.innerHTML = times;
+				element.setAttribute("o", "true");
+				turn = "o";
+			}
 		}
-		console.log(!(hasX || hasO));
 	})
 );
