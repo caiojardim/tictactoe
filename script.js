@@ -5,6 +5,30 @@ function isAttributesTrue(value1, value2, value3, player) {
 	return v1 && v2 && v3;
 }
 
+function checkIfPlayerWins(
+	r1c1,
+	r1c2,
+	r1c3,
+	r2c1,
+	r2c2,
+	r2c3,
+	r3c1,
+	r3c2,
+	r3c3,
+	player
+) {
+	if (isAttributesTrue(r1c1, r1c2, r1c3, player)) return player;
+	if (isAttributesTrue(r2c1, r2c2, r2c3, player)) return player;
+	if (isAttributesTrue(r3c1, r3c2, r3c3, player)) return player;
+
+	if (isAttributesTrue(r1c1, r2c1, r3c1, player)) return player;
+	if (isAttributesTrue(r1c2, r2c2, r3c2, player)) return player;
+	if (isAttributesTrue(r1c3, r2c3, r3c3, player)) return player;
+
+	if (isAttributesTrue(r1c1, r2c2, r3c3, player)) return player;
+	if (isAttributesTrue(r1c3, r2c2, r3c1, player)) return player;
+}
+
 function checkWinner() {
 	const r1c1 = document.querySelector("#r1c1");
 	const r1c2 = document.querySelector("#r1c2");
@@ -18,16 +42,38 @@ function checkWinner() {
 	const r3c2 = document.querySelector("#r3c2");
 	const r3c3 = document.querySelector("#r3c3");
 
-	if (isAttributesTrue(r1c1, r1c2, r1c3, "x")) return "x";
-	if (isAttributesTrue(r2c1, r2c2, r2c3, "x")) return "x";
-	if (isAttributesTrue(r3c1, r3c2, r3c3, "x")) return "x";
-
-	if (isAttributesTrue(r1c1, r2c1, r3c1, "x")) return "x";
-	if (isAttributesTrue(r1c2, r2c2, r3c2, "x")) return "x";
-	if (isAttributesTrue(r1c3, r2c3, r3c3, "x")) return "x";
-
-	if (isAttributesTrue(r1c1, r2c2, r3c3, "x")) return "x";
-	if (isAttributesTrue(r1c3, r2c2, r3c1, "x")) return "x";
+	if (
+		checkIfPlayerWins(
+			r1c1,
+			r1c2,
+			r1c3,
+			r2c1,
+			r2c2,
+			r2c3,
+			r3c1,
+			r3c2,
+			r3c3,
+			"x"
+		) === "x"
+	) {
+		return "x";
+	}
+	if (
+		checkIfPlayerWins(
+			r1c1,
+			r1c2,
+			r1c3,
+			r2c1,
+			r2c2,
+			r2c3,
+			r3c1,
+			r3c2,
+			r3c3,
+			"o"
+		) === "o"
+	) {
+		return "o";
+	}
 
 	// retorna x, o, tie, true
 }
