@@ -82,10 +82,18 @@ main {
 }
 
 #turn {
-	color: #ffffff;
+	display: flex;
+	align-items: center;
+
+	color: #545454;
 	font-family: sans-serif;
+	font-weight: bold;
 	font-size: 3rem;
 	margin-bottom: 3rem;
+}
+
+#turn i {
+	margin-left: 1rem;
 }
 
 #turn .fa-circle {

@@ -112,7 +112,7 @@ elements.forEach((e) =>
 				turn = "o";
 			}
 		}
-
+		divTurn.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
 		console.log(checkWinner());
 	})
 );
