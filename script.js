@@ -29,6 +29,12 @@ function checkIfPlayerWins(
 	if (isAttributesTrue(r1c3, r2c2, r3c1, player)) return player;
 }
 
+function desableButtons(...buttons) {
+	buttons.forEach((button) => {
+		button.disabled = true;
+	});
+}
+
 function checkWinner() {
 	const r1c1 = document.querySelector("#r1c1");
 	const r1c2 = document.querySelector("#r1c2");
@@ -56,6 +62,7 @@ function checkWinner() {
 			"x"
 		) === "x"
 	) {
+		desableButtons(r1c1, r1c2, r1c3, r2c1, r2c2, r2c3, r3c1, r3c2, r3c3);
 		return "x";
 	}
 	if (
@@ -72,6 +79,7 @@ function checkWinner() {
 			"o"
 		) === "o"
 	) {
+		desableButtons(r1c1, r1c2, r1c3, r2c1, r2c2, r2c3, r3c1, r3c2, r3c3);
 		return "o";
 	}
 
