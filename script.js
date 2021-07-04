@@ -109,8 +109,8 @@ const circle = '<i class="far fa-circle"></i>';
 
 let turn = Math.random() > 0.5 ? "o" : "x";
 
-const divTurn = document.getElementById("turn");
-divTurn.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
+const divDisplay = document.getElementById("display");
+divDisplay.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
 
 elements = document.querySelectorAll("button");
 elements.forEach((e) =>
@@ -129,8 +129,17 @@ elements.forEach((e) =>
 				element.setAttribute("x", "true");
 				turn = "o";
 			}
+			divDisplay.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
 		}
-		divTurn.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
-		console.log(checkWinner());
+
+		if (checkWinner() === "o") {
+			divDisplay.innerHTML = `${circle} ganhou`;
+		}
+		if (checkWinner() === "x") {
+			divDisplay.innerHTML = `${times} ganhou`;
+		}
+		if (checkWinner() === "tie") {
+			divDisplay.innerHTML = `Empate`;
+		}
 	})
 );

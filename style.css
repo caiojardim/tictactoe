@@ -81,9 +81,10 @@ main {
 	border-right: none;
 }
 
-#turn {
+#display {
 	display: flex;
 	align-items: center;
+	gap: 1rem;
 
 	color: #545454;
 	font-family: sans-serif;
@@ -92,10 +93,6 @@ main {
 	margin-bottom: 3rem;
 }
 
-#turn i {
-	margin-left: 1rem;
-}
-
-#turn .fa-circle {
+#display .fa-circle {
 	font-size: 2.5rem;
 }
