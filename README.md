@@ -2,6 +2,8 @@
 
 <p>This project had the idea of recreating the tictactoe game, I used google's tictactoe as a model</p>
 
+<h3>Demo: https://cj-tictactoe.netlify.app/</h3>
+
 <h2> What I learned with this project: </h2>
 <ul>
     <li>Use font awesome</li>
