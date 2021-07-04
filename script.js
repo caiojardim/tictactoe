@@ -1,3 +1,9 @@
+function hasXorO(element) {
+	const hasX = element.attributes.x.value === "true";
+	const hasO = element.attributes.o.value === "true";
+	return hasX || hasO;
+}
+
 function isAttributesTrue(value1, value2, value3, player) {
 	v1 = value1.attributes[player].value === "true";
 	v2 = value2.attributes[player].value === "true";
@@ -82,7 +88,19 @@ function checkWinner() {
 		desableButtons(r1c1, r1c2, r1c3, r2c1, r2c2, r2c3, r3c1, r3c2, r3c3);
 		return "o";
 	}
-
+	if (
+		hasXorO(r1c1) &&
+		hasXorO(r1c2) &&
+		hasXorO(r1c3) &&
+		hasXorO(r2c1) &&
+		hasXorO(r2c2) &&
+		hasXorO(r2c3) &&
+		hasXorO(r3c1) &&
+		hasXorO(r3c2) &&
+		hasXorO(r3c3)
+	) {
+		return "tie";
+	}
 	// retorna x, o, tie, true
 }
 
