@@ -41,6 +41,13 @@ function desableButtons(...buttons) {
 	});
 }
 
+function enableButtons(buttons) {
+	buttons.forEach((button) => {
+		const buttonElement = document.getElementById(button);
+		buttonElement.disabled = false;
+	});
+}
+
 function checkWinner() {
 	const r1c1 = document.querySelector("#r1c1");
 	const r1c2 = document.querySelector("#r1c2");
@@ -104,6 +111,15 @@ function checkWinner() {
 	// retorna x, o, tie, true
 }
 
+function resetValues(values) {
+	values.forEach((value) => {
+		const element = document.getElementById(value);
+		element.setAttribute("x", "false");
+		element.setAttribute("o", "false");
+		element.innerHTML = "";
+	});
+}
+
 const times = '<i class="fas fa-times"></i>';
 const circle = '<i class="far fa-circle"></i>';
 
@@ -112,7 +128,7 @@ let turn = Math.random() > 0.5 ? "o" : "x";
 const divDisplay = document.getElementById("display");
 divDisplay.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
 
-elements = document.querySelectorAll("button");
+elements = document.querySelectorAll(".game-button");
 elements.forEach((e) =>
 	e.addEventListener("click", function (e) {
 		const element = e.currentTarget;
@@ -143,3 +159,23 @@ elements.forEach((e) =>
 		}
 	})
 );
+
+const gameBoard = [
+	"r1c1",
+	"r1c2",
+	"r1c3",
+	"r2c1",
+	"r2c2",
+	"r2c3",
+	"r3c1",
+	"r3c2",
+	"r3c3",
+];
+
+restartButton = document.querySelector(".restart");
+restartButton.addEventListener("click", () => {
+	resetValues(gameBoard);
+	enableButtons(gameBoard);
+	turn = Math.random() > 0.5 ? "o" : "x";
+	divDisplay.innerHTML = `Vez de ${turn === "o" ? circle : times}`;
+});

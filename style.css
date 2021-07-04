@@ -96,3 +96,13 @@ main {
 #display .fa-circle {
 	font-size: 2.5rem;
 }
+
+.restart {
+	border: 2px solid #fff;
+	background: #14bdac;
+	padding: 1.5rem;
+	margin-top: 3rem;
+	font-weight: bold;
+	font-size: 1.125rem;
+	color: #fff;
+}
